@@ -1,0 +1,20 @@
+name: ci
+
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      -
+        name: test send message
+        uses: ntfs32/wework@master
+        with:
+          WEWORK_USERLIST: ${{ secrets.WEWORK_USERLIST }}
+          WEWORK_CORPID: ${{ secrets.WEWORK_CORPID }}
+          WEWORK_AGENTID: ${{ secrets.WEWORK_AGENTID }}
+          WEWORK_APPSECRET: ${{ secrets.WEWORK_APPSECRET }}
+          WEWORK_TOUSER: "shaddock"
+          WEWORK_CONTENT: "thsi is a test"
